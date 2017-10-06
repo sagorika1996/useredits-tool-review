@@ -10,7 +10,6 @@ $(document).ready(function() {
 			url: url,
 			type: 'GET',
 			contentType: "application/json; charset=utf-8",
-			async: false,
 			dataType: "jsonp",
 			headers: { 'Api-User-Agent': 'useredits-tool/1.0' },
 			success: function(data, status, jqXHR) {
@@ -22,10 +21,9 @@ $(document).ready(function() {
 					var str = "";
 					for(var i=0;i<arr.length;i++) {
 						str +=
-						"<div class='panel panel-default col-xs-4' > <div class='panel-body'>Title: " 
-						+ arr[i].title + " (<a href='https://en.wikipedia.org/w/index.php?" + 
-						arr[i].title.replace(/ /g,"_") + "&oldid=" + arr[i].revid + "&diff=prev'>diff</a>)"
-						 + "<br>Timestamp: " + arr[i].timestamp + "<br>Comment: " + arr[i].comment + "</div></div>";
+						"<div class='panel panel-default col-xs-4' > <div class='panel-body'>Title: " + arr[i].title 
+						+ "<br> Diff: <a href='https://en.wikipedia.org/w/index.php?pageid=" + arr[i].pageid + "&oldid=" 
+						+ arr[i].revid + "&diff=prev'>Link</a>" + "<br>Timestamp: " + arr[i].timestamp + "</div></div>";
 						}
 					if(arr.length == 0) {
 						str = "<div class='panel panel-default col-xs-4' > <div class='panel-body'> No edits </div></div>";
