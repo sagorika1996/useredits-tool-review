@@ -21,9 +21,9 @@ $(document).ready(function() {
 					var str = "";
 					for(var i=0;i<arr.length;i++) {
 						str +=
-						"<div class='panel panel-default col-xs-4' > <div class='panel-body'>Title: " + arr[i].title 
-						+ "<br> Diff: <a href='https://en.wikipedia.org/w/index.php?pageid=" + arr[i].pageid + "&oldid=" 
-						+ arr[i].revid + "&diff=prev'>Link</a>" + "<br>Timestamp: " + arr[i].timestamp + "</div></div>";
+						"<div class='panel panel-default col-xs-4' > <div class='panel-body'>Title: " + $('<div/>').text(arr[i].title).html() 
+						+ "<br> Diff: <a href='https://en.wikipedia.org/w/index.php?" + "&oldid=" + arr[i].revid + "&diff=prev'>Link</a>" 
+						+ "<br>Timestamp: " + arr[i].timestamp + "<br>Comment: " + $('<div/>').text(arr[i].comment).html() + "</div></div>";
 						}
 					if(arr.length == 0) {
 						str = "<div class='panel panel-default col-xs-4' > <div class='panel-body'> No edits </div></div>";
